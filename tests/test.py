@@ -1,6 +1,7 @@
 import pytest
 from DemoPackage.furtune_cookie import dev_fortune_cookie
-from DemoPackage.generate_emoji import dev_generate_emoji
+from DemoPackage.generate_emoji import generate_emoji
+from DemoPackage.owl_banner import gl_banner
 
 
 def test_dev_fortune_cookie_valid_category():
@@ -32,6 +33,7 @@ def test_dev_fortune_cookie_none_input():
     assert "🔮 Developer Fortune:" in result
     assert len(result.strip()) > 20
 
+
 def test_generate_emoji_valid():
     valid_emojis = ["😂", "🤣", "😆", "😁"]
     result = generate_emoji("laugh")
@@ -49,3 +51,4 @@ def test_generate_emoji_case_insensitive():
 def test_generate_emoji_output_type():
     result = generate_emoji("cry")
     assert isinstance(result, str), f"Expected output type str, got {type(result)}"
+
