@@ -1,5 +1,7 @@
 import pytest
 from DemoPackage.furtune_cookie import dev_fortune_cookie
+from DemoPackage.generate_emoji import generate_emoji
+from DemoPackage.owl_banner import gl_banner
 
 def test_dev_fortune_cookie_valid_category():
     """Test that valid categories return a correctly formatted string."""
