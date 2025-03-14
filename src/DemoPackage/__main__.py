@@ -1,72 +1,51 @@
 import os
+import sys
 import time
 import datetime
 import platform
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from DemoPackage.furtune_cookie import dev_fortune_cookie
-from DemoPackage.generate_emoji import generate_emoji  # 新增导入
+from DemoPackage.generate_emoji import generate_emoji  
+from DemoPackage.owl_banner import gl_banner
 
-
-def gl_banner():
-    print("\n")
-    seed = "490000514095612094711092719200618300609300923300527300409400454500"
-    length = len(seed)
-
-    for i in range(11):
-        
-        start_index = length - 6 * (i + 1)
-        end_index = length - 6 * i
-        seed_cup = seed[start_index:end_index]
-
-        sub_seed = int(seed_cup)
-      
-        for _ in range(3):
-            emp = sub_seed % 10   
-            sub_seed //= 10       
-
-            print(" " * emp, end="")  
-
-            star = sub_seed % 10    
-            sub_seed //= 10
-
-            print("*" * star, end="") 
-
-        time.sleep(0.05)
-        print()  
-    
-    projectName = "Project Name"
-    db_name = "None"
-    environment = "Testing"
-    version = "1.0"
-    extra_info = "Web Crawlers"
-    current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    os_info = platform.platform()
-
-    banner = f"""
-
--- PROGRAM INITIALIZATION --
-
-   PROJECT      : {projectName}
-   DB NAME      : {db_name}
-   ENVIRONMENT  : {environment}
-   VERSION      : {version}
-   DATE & TIME  : {current_time}
-   OS           : {os_info}
-   INFO         : {extra_info}
-
-"""
-    print(banner.strip())
 
 
 def main():
-    gl_banner()
+   while True:
 
-    # Fortune Cookie
-    category = input("🔮 Choose fortune category (general, bug, debug, success): ") or "general"
-    print(dev_fortune_cookie(category))
+    choice = input("🦉 Choose Your Option (1: Owl Banner, 2: Fortune Cookie, 3: Generate Emoji, 4: Abort): ") or "1"
+    
+    try:
+        choice = int(choice)
+    except ValueError:
+        print("[ERROR] Invalid input")
+        choice = 1
 
-    # Generate Emoji
-    emotion = input("😊 Enter an emotion (laugh, cry, love, etc.): ") or "happy"
-    print(f"Your emoji: {generate_emoji(emotion)}")  # 调用 generate_emoji() 方法
+    
+    if choice == 4:
+        print("*** PROGRAM TERMINATED ***")
+        break  
+
+    
+    match choice:
+        case 1:
+            # Owl Banner
+            para = int(input("🦉 Choose Your Style (0: Style A, 1: Style B, 2: Style C): ") or "0")
+            gl_banner(para)
+
+        case 2:
+            # Fortune Cookie
+            category = input("🔮 Choose fortune category (general, bug, debug, success): ") or "general"
+            print(dev_fortune_cookie(category))
+
+        case 3:
+            # Generate Emoji
+            emotion = input("😊 Enter an emotion (laugh, cry, love, etc.): ") or "happy"
+            print(f"Your emoji: {generate_emoji(emotion)}")
+
+        case _:
+            print("[Invalid option] Please enter 1, 2, 3, or 4.")
+    
 
 if __name__ == "__main__":
     main()
