@@ -20,14 +20,8 @@ def generate_emoji(keyword: str) -> str:
         "sleepy": ["😴", "💤", "🥱"]
     }
 
-    # Convert input to lowercase and fetch emoji list
-    emojis = emoji_dict.get(keyword.lower(), ["🤔"])  # Default to 🤔 if not found
-    
-    # Return a random emoji from the category
-    return random.choice(emojis)
+    # Convert input to lowercase and strip leading/trailing spaces
+    normalized_keyword = keyword.strip().lower()
 
-
-# Example usage
-if __name__ == "__main__":
-    user_input = input("Enter an emotion (laugh, cry, love, etc.): ")
-    print("Your emoji:", generate_emoji(user_input))
+    # Return a random emoji if keyword is valid, otherwise return default 🤔
+    return random.choice(emoji_dict.get(normalized_keyword, ["🤔"]))
