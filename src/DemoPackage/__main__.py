@@ -2,6 +2,7 @@ import os
 import time
 import datetime
 import platform
+from DemoPackage.furtune_cookie import dev_fortune_cookie
 
 
 def gl_banner():
@@ -57,6 +58,9 @@ def gl_banner():
 def main():
     #print("Output of Python Program")
     gl_banner()
+
+    category = input("🔮 Choose fortune category (general, bug, debug, success): ") or "general"
+    print(dev_fortune_cookie(category))
 
 if __name__ == "__main__":
     main()
