@@ -3,6 +3,7 @@ import time
 import datetime
 import platform
 from DemoPackage.furtune_cookie import dev_fortune_cookie
+from DemoPackage.generate_emoji import generate_emoji  # 新增导入
 
 
 def gl_banner():
@@ -32,11 +33,11 @@ def gl_banner():
         time.sleep(0.05)
         print()  
     
-    projectName="Project Name"
-    db_name="None"
-    environment="Testing"
-    version="1.0"
-    extra_info="Web Crawlers"
+    projectName = "Project Name"
+    db_name = "None"
+    environment = "Testing"
+    version = "1.0"
+    extra_info = "Web Crawlers"
     current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     os_info = platform.platform()
 
@@ -55,12 +56,17 @@ def gl_banner():
 """
     print(banner.strip())
 
+
 def main():
-    #print("Output of Python Program")
     gl_banner()
 
+    # Fortune Cookie
     category = input("🔮 Choose fortune category (general, bug, debug, success): ") or "general"
     print(dev_fortune_cookie(category))
+
+    # Generate Emoji
+    emotion = input("😊 Enter an emotion (laugh, cry, love, etc.): ") or "happy"
+    print(f"Your emoji: {generate_emoji(emotion)}")  # 调用 generate_emoji() 方法
 
 if __name__ == "__main__":
     main()
