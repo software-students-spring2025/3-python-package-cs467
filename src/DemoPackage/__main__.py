@@ -3,64 +3,70 @@ import time
 import datetime
 import platform
 from DemoPackage.furtune_cookie import dev_fortune_cookie
+from DemoPackage.generate_emoji import generate_emoji  # 新增导入
 
 
-def gl_banner():
+# Function that return a banner with an owl icon
+# para=0: Toppan owl with banner 
+# para=1: Gravure owl with banner 
+# para=2: Toppan owl without banner
+def gl_banner(para):
     print("\n")
-    seed = "490000514095612094711092719200618300609300923300527300409400454500"
+    seed="00080909000409490251409504612094067110920007719200086183000950930009923300095273000940940008454500080909"
     length = len(seed)
 
-    for i in range(11):
-        
-        start_index = length - 6 * (i + 1)
-        end_index = length - 6 * i
-        seed_cup = seed[start_index:end_index]
+    a=["*"," "]
+    b=[" ","*"]
 
+    for i in range(13):
+        
+        start_index = length - 8 * (i + 1)
+        end_index = length - 8 * i
+        seed_cup = seed[start_index:end_index]
         sub_seed = int(seed_cup)
       
-        for _ in range(3):
+        for _ in range(4):
             emp = sub_seed % 10   
             sub_seed //= 10       
-
-            print(" " * emp, end="")  
-
+            print( a[abs(para-1)] * emp, end="")  
             star = sub_seed % 10    
             sub_seed //= 10
-
-            print("*" * star, end="") 
+            print( b[abs(para-1)] * star, end="") 
 
         time.sleep(0.05)
-        print()  
-    
+        print("")  
+
     projectName="Project Name"
-    db_name="None"
     environment="Testing"
     version="1.0"
-    extra_info="Web Crawlers"
+    extra_info="Full-Stack Ninja"
     current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     os_info = platform.platform()
-
     banner = f"""
 
 -- PROGRAM INITIALIZATION --
-
-   PROJECT      : {projectName}
-   DB NAME      : {db_name}
-   ENVIRONMENT  : {environment}
-   VERSION      : {version}
-   DATE & TIME  : {current_time}
-   OS           : {os_info}
-   INFO         : {extra_info}
+    PROJECT      : {projectName}
+    ENVIRONMENT  : {environment}
+    VERSION      : {version}
+    DATE & TIME  : {current_time}
+    OS           : {os_info}
+    INFO         : {extra_info}
 
 """
-    print(banner.strip())
+    if(para<=1):
+      print(banner.strip(0))
+
 
 def main():
-    #print("Output of Python Program")
-    gl_banner()
+    gl_banner(0)
 
+    # Fortune Cookie
     category = input("🔮 Choose fortune category (general, bug, debug, success): ") or "general"
     print(dev_fortune_cookie(category))
+
+    # Generate Emoji
+    emotion = input("😊 Enter an emotion (laugh, cry, love, etc.): ") or "happy"
+    print(f"Your emoji: {generate_emoji(emotion)}")  # 调用 generate_emoji() 方法
 
 if __name__ == "__main__":
     main()
