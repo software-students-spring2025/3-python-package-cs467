@@ -62,21 +62,21 @@ def capture_output(para):
     sys.stdout = sys.__stdout__   
     return captured_output.getvalue()
 
-# Test1 (para=0)
+# Test1 (para=1)
 def test_gl_banner_para_0_output():
-    output = capture_output(0)
+    output = capture_output(1)
     assert "-- PROGRAM INITIALIZATION --" in output
     assert "PROJECT      : Project Name" in output
 
-# Test2 (para=1)
+# Test2 (para=2)
 def test_gl_banner_para_1_output():
-    output = capture_output(1)
+    output = capture_output(2)
     assert "OS           :" in output
     assert "INFO         : Full-Stack Ninja" in output
 
-# Test3 (para=2)
+# Test3 (para=3)
 def test_gl_banner_para_2_no_banner():
-    output = capture_output(2)
+    output = capture_output(3)
     assert "-- PROGRAM INITIALIZATION --" not in output  
     assert len(output.strip()) > 0  
 

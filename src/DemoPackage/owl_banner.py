@@ -9,6 +9,7 @@ import platform
 # para=1: Gravure owl with banner 
 # para=2: Toppan owl without banner
 def gl_banner(para):
+    para-=1
     if para not in [0, 1, 2]:
         print("[ERROR] Invalid Input. Para has been set to 0")
         para=0

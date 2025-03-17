@@ -12,8 +12,8 @@ from DemoPackage.owl_banner import gl_banner
 
 def main():
    while True:
-
-    choice = input("🦉 Choose Your Option (1: Owl Banner, 2: Fortune Cookie, 3: Generate Emoji, 4: Abort): ") or "1"
+    print("________________________________________________________________________\n")
+    choice = input("*** Select the function to be executed... \n\t(1: Owl Banner, 2: Fortune Cookie, 3: Generate Emoji, 4: Abort): ") or "1"
     
     try:
         choice = int(choice)
@@ -23,24 +23,26 @@ def main():
 
     
     if choice == 4:
-        print("*** PROGRAM TERMINATED ***")
+        print("\n************************")
+        print("*  PROGRAM TERMINATED  *")
+        print("************************\n")
         break  
 
     
     match choice:
         case 1:
             # Owl Banner
-            para = int(input("🦉 Choose Your Style (0: Style A, 1: Style B, 2: Style C): ") or "0")
+            para = int(input("\n\t🦉 Choose Your Style (1: Style A, 2: Style B, 3: Style C): ") or "3")
             gl_banner(para)
 
         case 2:
             # Fortune Cookie
-            category = input("🔮 Choose fortune category (general, bug, debug, success): ") or "general"
+            category = input("\n\t🔮 Choose fortune category (general, bug, debug, success): ") or "1"
             print(dev_fortune_cookie(category))
 
         case 3:
             # Generate Emoji
-            emotion = input("😊 Enter an emotion (laugh, cry, love, etc.): ") or "happy"
+            emotion = input("\n\t😊 Enter an emotion (laugh, cry, love, etc.): ") or "happy"
             print(f"Your emoji: {generate_emoji(emotion)}")
 
         case _:
