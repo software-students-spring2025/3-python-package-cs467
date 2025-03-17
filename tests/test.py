@@ -1,9 +1,11 @@
 import pytest
+import sys
+import io
 from DemoPackage.furtune_cookie import dev_fortune_cookie
 from DemoPackage.generate_emoji import generate_emoji
 from DemoPackage.owl_banner import gl_banner
 
-
+# Tests of furtune_cookie *************************************************************
 def test_dev_fortune_cookie_valid_category():
     """Test that valid categories return a correctly formatted string."""
     for category in ["general", "bug", "debug", "success"]:
@@ -33,7 +35,7 @@ def test_dev_fortune_cookie_none_input():
     assert "🔮 Developer Fortune:" in result
     assert len(result.strip()) > 20
 
-
+# Tests of generate_emoji *************************************************************
 def test_generate_emoji_valid():
     valid_emojis = ["😂", "🤣", "😆", "😁"]
     result = generate_emoji("laugh")
@@ -52,3 +54,34 @@ def test_generate_emoji_output_type():
     result = generate_emoji("cry")
     assert isinstance(result, str), f"Expected output type str, got {type(result)}"
 
+# Tests of owl_banner ****************************************************************
+def capture_output(para):
+    captured_output = io.StringIO()
+    sys.stdout = captured_output  
+    gl_banner(para)
+    sys.stdout = sys.__stdout__   
+    return captured_output.getvalue()
+
+# Test1 (para=0)
+def test_gl_banner_para_0_output():
+    output = capture_output(0)
+    assert "-- PROGRAM INITIALIZATION --" in output
+    assert "PROJECT      : Project Name" in output
+
+# Test2 (para=1)
+def test_gl_banner_para_1_output():
+    output = capture_output(1)
+    assert "OS           :" in output
+    assert "INFO         : Full-Stack Ninja" in output
+
+# Test3 (para=2)
+def test_gl_banner_para_2_no_banner():
+    output = capture_output(2)
+    assert "-- PROGRAM INITIALIZATION --" not in output  
+    assert len(output.strip()) > 0  
+
+# Test4 (Illegal Input )
+def test_gl_banner_invalid_para_output():
+    output = capture_output(999)
+    assert "-- PROGRAM INITIALIZATION --" in output
+    assert "VERSION      : 1.0" in output
