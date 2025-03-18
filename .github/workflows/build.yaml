@@ -35,26 +35,19 @@ jobs:
   deliver:
     needs: [build]
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     # Only run this job when the workflow is triggered by a push to main (not PRs)
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     steps:
       - uses: actions/checkout@v4
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install pipenv build twine
-          export PATH="$PATH:$HOME/.local/bin"
+      - name: Install Python, pipenv and Pipfile packages
+        uses: kojoru/prepare-pipenv@v1
       - name: Build package
         run: |
-          python -m build
+            pipenv install build
+            pipenv run python -m build .
       - name: Publish to Test PyPI
-        run: |
-          pipenv install twine
-          pipenv run python -m twine upload --verbose --repository-url https://test.pypi.org/legacy/ --skip-existing dist/*
-        env:
-          TWINE_USERNAME: __token__
-          TWINE_PASSWORD: ${{ secrets.TEST_PYPI_API_TOKEN }}
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+            password: ${{ secrets.TEST_PYPI_API_TOKEN }}
+            repository-url: https://test.pypi.org/legacy/
