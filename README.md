@@ -4,6 +4,6 @@ An exercise to create a Python package, build it, test it, distribute it, and us
 
 ## Credit
 - [Michael Liu](https://github.com/Michaelliu1017)
-- [Jiangbo Shen](https://github.com/js-montgomery)
+- [Benny Shen](https://github.com/js-montgomery)
 - [Polaris Wu](https://github.com/Polaris-Wu450)
 - [Felix Guo](https://github.com/Fel1xgte)
