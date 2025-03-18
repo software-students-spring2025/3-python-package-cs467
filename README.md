@@ -1,9 +1,77 @@
-# Python Package Exercise
+# DemoPackage
 
-An exercise to create a Python package, build it, test it, distribute it, and use it. See [instructions](./instructions.md) for details.
+![Build Status]([https://github.com/software-students-spring2025/3-python-package-cs467/actions/workflows/python-package.yml/badge.svg](https://github.com/software-students-spring2025/3-python-package-cs467/blob/main/.github/workflows/build.yaml))
 
-## Credit
-- [Michael Liu](https://github.com/Michaelliu1017)
-- [Benny Shen](https://github.com/js-montgomery)
-- [Polaris Wu](https://github.com/Polaris-Wu450)
-- [Felix Guo](https://github.com/Fel1xgte)
+A fun Python package that brings joy to developers with banners, random fortunes, and emojis.
+
+## 📌 Overview
+DemoPackage-CS467 is a lightweight and entertaining Python package designed to add a bit of fun to a developer's workflow. It provides:
+- **Fortune Cookie Generator**: Get random, amusing developer fortunes.
+- **Emoji Generator**: Generate relevant emojis based on keywords.
+- **Owl Banner Generator**: Display a stylish ASCII owl banner with project info.
+
+## 📥 Installation
+You can install the package directly from PyPI using pip:
+```sh
+pip install demopackage-cs467
+```
+Or install from source:
+```sh
+# Clone the repository
+git clone https://github.com/software-students-spring2025/3-python-package-cs467.git
+cd 3-python-package-cs467
+
+# Install in development mode
+pip install -e .
+```
+
+## 🚀 Usage
+### 1. Fortune Cookie Generator
+```python
+from DemoPackage.furtune_cookie import dev_fortune_cookie
+
+print(dev_fortune_cookie("general"))  # Get a general fortune
+```
+
+### 2. Emoji Generator
+```python
+from DemoPackage.generate_emoji import generate_emoji
+
+print(generate_emoji("laugh"))  # Returns a laughing emoji
+```
+
+### 3. Owl Banner Generator
+```python
+from DemoPackage.owl_banner import gl_banner
+
+gl_banner(1)  # Displays an ASCII owl banner with project info
+```
+
+## 🛠 Development Setup
+If you wish to contribute, set up your development environment as follows:
+```sh
+# Create and activate a virtual environment
+python -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
+
+# Install dependencies
+pip install -e .
+pip install pytest build twine
+```
+
+### 🧪 Running Tests
+```sh
+pytest
+```
+
+## 👥 Contributors
+- [Michael Liu](https://github.com/Michaelliu1017) - Owl Banner Generator
+- [Benny Shen](https://github.com/js-montgomery) - 
+- [Polaris Wu](https://github.com/Polaris-Wu450) - Fortune Cookie Generator
+- [Felix Guo](https://github.com/Fel1xgte) - Emoji Generator
+
+## ⚙️ Configuration & Environment Variables
+No additional environment variables are required. The package runs out of the box.
+
+## 🔑 License
+This project is licensed under the GNU General Public License v3. See the LICENSE file for details.
