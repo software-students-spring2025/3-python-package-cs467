@@ -82,7 +82,7 @@ pytest
 
 ## 👥 Contributors
 - [Michael Liu](https://github.com/Michaelliu1017) - Owl Banner Generator
-- [Jiangbo Shen](https://github.com/js-montgomery) - 
+- [Jiangbo Shen](https://github.com/js-montgomery) - Daily Planner & Password Strength Checker
 - [Polaris Wu](https://github.com/Polaris-Wu450) - Fortune Cookie Generator
 - [Felix Guo](https://github.com/Fel1xgte) - Emoji Generator
 

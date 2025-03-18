@@ -12,14 +12,26 @@ def password_strength(password):
     # increase strength value if password match the condition below
     if len(password) >= 12:
         strength += 1
-    if any(char.islower() for char in password):
-        strength += 1
-    if any(char.isupper() for char in password):
-        strength += 1
-    if any(char.isdigit() for char in password):
-        strength += 1
-    if any(char in string.punctuation for char in password):
-        strength += 1
+    
+    for i in password:
+        if i.islower():
+            strength += 1
+            break
+    
+    for i in password:
+        if i.isupper():
+            strength += 1
+            break
+
+    for i in password:
+        if i.isdigit():
+            strength += 1
+            break
+    
+    for i in password:
+        if i in string.punctuation:
+            strength += 1
+            break
 
     # return the password strength
     if strength == 5:

@@ -5,7 +5,7 @@ A personalized daily planner function that helps the users to list their tasks
 @return: a string contains the formated daily planner
 """
 def daily_planner(name):
-    print('\nWelcome to your daily planner!')
+    print('\nCreate your own daily planner!')
     tdlist = []
 
     # store the task and priority in 'tdlist'
@@ -14,24 +14,24 @@ def daily_planner(name):
         if task.lower() == 'done':
             break
 
-        priority = input('Priority (1-3, 3 being heighest): ').strip()
+        priority = input('Priority (from 1 to 3, 1 is the highest priority): ').strip()
         if priority not in ['1', '2', '3']:
             print('⚠️ Invalid input. Please enter 1, 2, or 3.')
-            priority = input('Priority (1-3, 3 being heighest): ').strip()
+            priority = input('Priority (from 1 to 3, 1 is the highest priority): ').strip()
 
         tdlist.append({'task':task, 'priority':priority})
 
     # sort 'tdlist' according to the priority
-    sorted_tdlist = sorted(tdlist, key=lambda x: x['priority'], reverse=True)
+    sorted_tdlist = sorted(tdlist, key=lambda x: x['priority'])
 
     # change the priority from number to text
     for i in sorted_tdlist:
         if i['priority'] == '1':
-            i['priority'] = 'LOW'
+            i['priority'] = 'HIGH'
         elif i['priority'] == '2':
             i['priority'] = 'MEDIUM'
         else:
-            i['priority'] = 'HIGH'
+            i['priority'] = 'LOW'
     
     # print the result
     result = ''
@@ -41,5 +41,3 @@ def daily_planner(name):
         result += f"{i+1}. [{task['priority']}] {task['task']}\n"
 
     return result
-
-print(daily_planner('benny'))

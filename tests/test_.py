@@ -93,15 +93,15 @@ def test_daily_planner_valid_input():
     # Test daily_planner with valid input and check if the returned string contains the expected tasks.
     
     # expected output from user input
-    user_input = ["Finish homework", "3", "Go for a run", "2", "done"]
-    expected_output = "[HIGH] Finish homework"
+    user_input = ["Study for exam", "1", "Go for a run", "2", "done"]
+    expected_output = "[HIGH] Study for exam"
 
     # actual result
     sys.stdin = io.StringIO("\n".join(user_input))
     result = daily_planner("Alice")
 
     # assertions
-    assert expected_output in result, f"Expected task '{expected_output}' not found in result"
+    assert expected_output in result, f"Expected '{expected_output}'"
     sys.stdin = sys.__stdin__
 
 def test_daily_planner_no_tasks():
@@ -116,42 +116,42 @@ def test_daily_planner_no_tasks():
     result = daily_planner("Alice")
 
     # assertions
-    assert expected_output in result, f"Expected header '{expected_output}' not found in result"
-    assert "1. [LOW]" not in result, "Expected no tasks to be added"
+    assert expected_output in result, f"Expected '{expected_output}'"
+    assert "1. [LOW]" not in result, "Expected no tasks in the planner"
     sys.stdin = sys.__stdin__
 
 def test_daily_planner_invalid_priority():
     # Test daily_planner with invalid priority input.
     
     # expected output from user input
-    user_input = ["Finish homework", "4", "3", "done"]
-    expected_output = "[HIGH] Finish homework"
+    user_input = ["Grocery shopping", "4", "1", "done"]
+    expected_output = "[HIGH] Grocery shopping"
 
     # actual result
     sys.stdin = io.StringIO("\n".join(user_input))
     result = daily_planner("Alice")
 
     # assertions
-    assert expected_output in result, f"Expected task '{expected_output}' not found in result"
+    assert expected_output in result, f"Expected '{expected_output}'"
     sys.stdin = sys.__stdin__
 
-# Tests of daily_planner *************************************************************
+# Tests of password_strength *************************************************************
 def test_password_strength_strong():
-    password = "aB3$fG7@kL12"  # Contains lowercase, uppercase, digits, and symbols
+    password = 'aB3$fG7@kL12'
     result = password_strength(password)
-    assert result == "Strong password! 💪", f"Expected 'Strong password! 💪', got {result}"
+    assert result == 'Strong password! 💪', f'Expected \'Strong password! 💪\', actual output: {result}'
 
 def test_password_strength_moderate():
-    password = "Password123"  # Contains lowercase, uppercase, and digits but no symbols
+    password = 'Password123'
     result = password_strength(password)
-    assert result == "Moderate password. 🔒", f"Expected 'Moderate password. 🔒', got {result}"
+    assert result == 'Moderate password. 🔒', f'Expected \'Moderate password. 🔒\', actual output: {result}'
 
 def test_password_strength_weak():
-    password = "password"  # Only lowercase letters
+    password = 'password'
     result = password_strength(password)
-    assert result == "Weak password. 🚨", f"Expected 'Weak password. 🚨', got {result}"
+    assert result == 'Weak password. 🚨', f'Expected \'Weak password. 🚨\', actual output: {result}'
 
 def test_password_strength_empty():
-    password = ""  # Empty password
+    password = ''
     result = password_strength(password)
-    assert result == "Weak password. 🚨", f"Expected 'Weak password. 🚨', got {result}"
+    assert result == 'Weak password. 🚨', f'Expected \'Weak password. 🚨\', actual output: {result}'
