@@ -1,6 +1,6 @@
 # DemoPackage
 
-![Build Status]([https://github.com/software-students-spring2025/3-python-package-cs467/actions/workflows/python-package.yml/badge.svg](https://github.com/software-students-spring2025/3-python-package-cs467/blob/main/.github/workflows/build.yaml))
+[![Build and Test](https://github.com/software-students-spring2025/3-python-package-cs467/actions/workflows/build.yaml/badge.svg)](https://github.com/software-students-spring2025/3-python-package-cs467/actions/workflows/build.yaml)
 
 A fun Python package that brings joy to developers with banners, random fortunes, and emojis.
 
