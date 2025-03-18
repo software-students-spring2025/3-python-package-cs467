@@ -32,25 +32,28 @@ jobs:
           pipenv install pytest --dev
           pipenv run pytest
 
-  deliver:
-    needs: [build]
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
+  # Note: Delivery job temporarily disabled: Our package is already uploaded to Test PyPI on every push/PR to main
+  # This workflow focuses on automated testing to ensure code quality.
+  # For production use, delivery should be triggered only on version tags/releases.
+  # deliver:
+  # needs: [build]
+  # runs-on: ubuntu-latest
+  # timeout-minutes: 5
     # Only run this job when the workflow is triggered by a push to main (not PRs)
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    steps:
-      - uses: actions/checkout@v4
-      - name: Install Python, pipenv and Pipfile packages
-        uses: kojoru/prepare-pipenv@v1
-      - name: Create Pipfile.lock
-        run: |
-          pipenv lock
-      - name: Build package
-        run: |
-            pipenv install build
-            pipenv run python -m build .
-      - name: Publish to Test PyPI
-        uses: pypa/gh-action-pypi-publish@release/v1
-        with:
-            password: ${{ secrets.TEST_PYPI_API_TOKEN }}
-            repository-url: https://test.pypi.org/legacy/
+  # if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+  # steps:
+  #   - uses: actions/checkout@v4
+  #   - name: Install Python, pipenv and Pipfile packages
+  #     uses: kojoru/prepare-pipenv@v1
+  #   - name: Create Pipfile.lock
+  #     run: |
+  #       pipenv lock
+  #   - name: Build package
+  #     run: |
+  #         pipenv install build
+  #         pipenv run python -m build .
+  #   - name: Publish to Test PyPI
+  #     uses: pypa/gh-action-pypi-publish@release/v1
+  #     with:
+  #         password: ${{ secrets.TEST_PYPI_API_TOKEN }}
+  #         repository-url: https://test.pypi.org/legacy/
