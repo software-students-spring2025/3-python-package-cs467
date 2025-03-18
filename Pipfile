@@ -6,7 +6,7 @@ name = "pypi"
 [packages]
 pytest = "*"
 build = "*"
-DempPackage = {file = ".", editable = true}
+DemoPackage = {file = ".", editable = true}
 
 [dev-packages]
 
