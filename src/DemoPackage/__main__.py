@@ -58,7 +58,7 @@ def main():
             print(password_strength(pwd))
 
         case _:
-            print("[Invalid option] Please enter 1, 2, 3, or 4.")
+            print("[Invalid option] Please enter 1, 2, 3, 4, 5 or 6.")
     
 
 if __name__ == "__main__":
