@@ -5,19 +5,19 @@ A personalized daily planner function that helps the users to list their tasks
 @return: a string contains the formated daily planner
 """
 def daily_planner(name):
-    print('\nCreate your own daily planner!')
+    print('\n\t\033[92m[Create your own daily planner]\033[0m')
     tdlist = []
 
     # store the task and priority in 'tdlist'
     while True:
-        task = input('Enter your task (type \'done\' to finish)\nTask: ').strip()
+        task = input('\t\033[94mEnter your task (type \'done\' to finish): \033[0m\n\t>> ').strip()
         if task.lower() == 'done':
             break
 
-        priority = input('Priority (from 1 to 3, 1 is the highest priority): ').strip()
+        priority = input('\t\033[94mPriority (from 1 to 3, 1 is the highest priority): \033[0m\n\t>> ').strip()
         if priority not in ['1', '2', '3']:
-            print('⚠️ Invalid input. Please enter 1, 2, or 3.')
-            priority = input('Priority (from 1 to 3, 1 is the highest priority): ').strip()
+            print('\t⚠️ \033[93mInvalid input. Please enter 1, 2, or 3.\033[0m')
+            priority = input('\t\033[94mPriority (from 1 to 3, 1 is the highest priority): \033[0m\n\t>> ').strip()
 
         tdlist.append({'task':task, 'priority':priority})
 
@@ -35,9 +35,10 @@ def daily_planner(name):
     
     # print the result
     result = ''
-    result += f'\n~~~~~{name}\'s schedule for today~~~~~\n'
+    result += f'\n\t\033[92m~~~~~{name}\'s schedule for today~~~~~\n'
     for i in range(len(sorted_tdlist)):
         task = sorted_tdlist[i]
-        result += f"{i+1}. [{task['priority']}] {task['task']}\n"
+        result += f"\t{i+1}. [{task['priority']}] {task['task']}\n"
+    result += '\033[0m'
 
     return result

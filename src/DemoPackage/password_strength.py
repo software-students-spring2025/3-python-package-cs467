@@ -35,8 +35,8 @@ def password_strength(password):
 
     # return the password strength
     if strength == 5:
-        return "Strong password! 💪"
+        return "\tStrong password! 💪"
     elif strength >= 3:
-        return "Moderate password. 🔒"
+        return "\tModerate password. 🔒"
     else:
-        return "Weak password. 🚨"
+        return "\tWeak password. 🚨"

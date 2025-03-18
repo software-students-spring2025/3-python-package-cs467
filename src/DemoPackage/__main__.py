@@ -15,7 +15,7 @@ from DemoPackage.password_strength import password_strength
 def main():
    while True:
     print("________________________________________________________________________\n")
-    choice = input("*** Select the function to be executed... \n\t(1: Owl Banner, 2: Fortune Cookie, 3: Generate Emoji, 4: Daily Planner, 5: Password Strength Checker), 6: Abort ") or "1"
+    choice = input("*** Select the function to be executed... \n\t1: Owl Banner \n\t2: Fortune Cookie \n\t3: Generate Emoji \n\t4: Daily Planner \n\t5: Password Strength Checker \n\t6: Abort \n\t>> ") or "1"
     
     try:
         choice = int(choice)
@@ -49,12 +49,12 @@ def main():
 
         case 4:
             # Daily Planner
-            name = input('\n\tPlease enter your name to generate your daily planner')
+            name = input('\n\tPlease enter your name to generate your daily planner: ')
             print(daily_planner(name))
 
         case 5:
             # Password Strength Checker
-            pwd = input('\n\tPlease enter the password to be evaluated')
+            pwd = input('\n\tPlease enter the password to be evaluated: ')
             print(password_strength(pwd))
 
         case _:
