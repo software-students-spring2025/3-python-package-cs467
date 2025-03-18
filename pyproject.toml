@@ -9,7 +9,8 @@ version = "0.1.1"
 authors = [
   { name = "Polaris Wu", email = "sw5693@nyu.edu" },
   { name = "Michael Liu", email = "gl2362@nyu.edu" },
-  { name = "Felix Guo", email = "tg2490@nyu.edu" }
+  { name = "Felix Guo", email = "tg2490@nyu.edu" },
+  { name = "Jiangbo Shen", email = "js12154@nyu.edu"}
 ]
 
 license = { file = "LICENSE" }
