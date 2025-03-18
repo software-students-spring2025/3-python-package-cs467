@@ -1,0 +1,14 @@
+[[source]]
+url = "https://"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+pytest = "*"
+build = "*"
+DempPackage = {file = ".", editable = true}
+
+[dev-packages]
+
+[requires]
+python_version = "3"
