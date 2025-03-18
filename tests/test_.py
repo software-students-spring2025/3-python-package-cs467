@@ -4,6 +4,7 @@ import io
 from DemoPackage.furtune_cookie import dev_fortune_cookie
 from DemoPackage.generate_emoji import generate_emoji
 from DemoPackage.owl_banner import gl_banner
+from DemoPackage.daily_planner import daily_planner
 
 # Tests of furtune_cookie *************************************************************
 def test_dev_fortune_cookie_valid_category():
@@ -85,3 +86,50 @@ def test_gl_banner_invalid_para_output():
     output = capture_output(999)
     assert "-- PROGRAM INITIALIZATION --" in output
     assert "VERSION      : 1.0" in output
+
+# Tests of daily_planner *************************************************************
+def test_daily_planner_valid_input():
+    # Test daily_planner with valid input and check if the returned string contains the expected tasks.
+    
+    # expected output from user input
+    user_input = ["Finish homework", "3", "Go for a run", "2", "done"]
+    expected_output = "[HIGH] Finish homework"
+
+    # actual result
+    sys.stdin = io.StringIO("\n".join(user_input))
+    result = daily_planner("Alice")
+
+    # assertions
+    assert expected_output in result, f"Expected task '{expected_output}' not found in result"
+    sys.stdin = sys.__stdin__
+
+def test_daily_planner_no_tasks():
+    # Test daily_planner when no tasks are entered.
+
+    # expected output from user input
+    user_input = ["done"]
+    expected_output = "~~~~~Alice's schedule for today~~~~~"
+
+    # actual result
+    sys.stdin = io.StringIO("\n".join(user_input))
+    result = daily_planner("Alice")
+
+    # assertions
+    assert expected_output in result, f"Expected header '{expected_output}' not found in result"
+    assert "1. [LOW]" not in result, "Expected no tasks to be added"
+    sys.stdin = sys.__stdin__
+
+def test_daily_planner_invalid_priority():
+    # Test daily_planner with invalid priority input.
+    
+    # expected output from user input
+    user_input = ["Finish homework", "4", "3", "done"]
+    expected_output = "[HIGH] Finish homework"
+
+    # actual result
+    sys.stdin = io.StringIO("\n".join(user_input))
+    result = daily_planner("Alice")
+
+    # assertions
+    assert expected_output in result, f"Expected task '{expected_output}' not found in result"
+    sys.stdin = sys.__stdin__

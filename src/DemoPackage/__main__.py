@@ -7,13 +7,14 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from DemoPackage.furtune_cookie import dev_fortune_cookie
 from DemoPackage.generate_emoji import generate_emoji  
 from DemoPackage.owl_banner import gl_banner
+from DemoPackage.daily_planner import daily_planner
 
 
 
 def main():
    while True:
     print("________________________________________________________________________\n")
-    choice = input("*** Select the function to be executed... \n\t(1: Owl Banner, 2: Fortune Cookie, 3: Generate Emoji, 4: Abort): ") or "1"
+    choice = input("*** Select the function to be executed... \n\t(1: Owl Banner, 2: Fortune Cookie, 3: Generate Emoji, 4: Daily Planner): ") or "1"
     
     try:
         choice = int(choice)
@@ -44,6 +45,11 @@ def main():
             # Generate Emoji
             emotion = input("\n\t😊 Enter an emotion (laugh, cry, love, etc.): ") or "happy"
             print(f"Your emoji: {generate_emoji(emotion)}")
+
+        case 4:
+            # Daily Planner
+            name = input('\n\tPlease enter your name to generate your daily planner')
+            print(daily_planner(name))
 
         case _:
             print("[Invalid option] Please enter 1, 2, 3, or 4.")
