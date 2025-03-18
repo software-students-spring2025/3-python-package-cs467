@@ -4,11 +4,13 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "demopackage-cs467"
-description = "A fun Python package that brings joy to developers with random fortunes and emojis."
+description = "A fun Python package that brings joy to developers with some banner, random fortunes, and emojis."
 version = "0.1.1"
 authors = [
-  { name="Polaris Wu", email="sw5693@nyu.edu" },
+  { name = "Polaris Wu", email = "sw5693@nyu.edu" },
+  { name = "Michael Liu", email = "gl2362@nyu.edu" }
 ]
+
 license = { file = "LICENSE" }
 readme = "README.md"
 keywords = ["python", "package", "build", "tutorial"]
