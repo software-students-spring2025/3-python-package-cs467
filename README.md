@@ -9,6 +9,8 @@ DemoPackage-CS467 is a lightweight and entertaining Python package designed to a
 - **Fortune Cookie Generator**: Get random, amusing developer fortunes.
 - **Emoji Generator**: Generate relevant emojis based on keywords.
 - **Owl Banner Generator**: Display a stylish ASCII owl banner with project info.
+- **Daily Planner**: Reads user input and generate daily planner sorted by priority level of each task
+- **Password Strength Checker**: Evaluates the strength of a password
 
 ## 📥 Installation
 You can install the package directly from PyPI using pip:
@@ -47,6 +49,20 @@ from DemoPackage.owl_banner import gl_banner
 gl_banner(1)  # Displays an ASCII owl banner with project info
 ```
 
+### 4. Daily Planner
+```python
+from DemoPackage.daily_planner import daily_planner
+
+print(daily_planner(username)) # Displays a formated daily planner
+```
+
+### 5. Password Strength Checker
+```python
+from DemoPackage.password_strength import password_strength
+
+print(password_strength(password)) # returns the strength of 'password'
+```
+
 ## 🛠 Development Setup
 If you wish to contribute, set up your development environment as follows:
 ```sh
@@ -66,7 +82,7 @@ pytest
 
 ## 👥 Contributors
 - [Michael Liu](https://github.com/Michaelliu1017) - Owl Banner Generator
-- [Benny Shen](https://github.com/js-montgomery) - 
+- [Jiangbo Shen](https://github.com/js-montgomery) - 
 - [Polaris Wu](https://github.com/Polaris-Wu450) - Fortune Cookie Generator
 - [Felix Guo](https://github.com/Fel1xgte) - Emoji Generator
 
