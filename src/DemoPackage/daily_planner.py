@@ -1,8 +1,8 @@
 """
 A personalized daily planner function that helps the users to list their tasks
 
-param: name -> a string represents users name
-return: none
+@param name: a string represents users name
+@return: a string contains the formated daily planner
 """
 def daily_planner(name):
     print('\nWelcome to your daily planner!')
@@ -35,10 +35,10 @@ def daily_planner(name):
     
     # print the result
     result = ''
-    result += '\n~~~~~{0}\'s schedule for today~~~~~\n'.format(name)
+    result += f'\n~~~~~{name}\'s schedule for today~~~~~\n'
     for i in range(len(sorted_tdlist)):
         task = sorted_tdlist[i]
-        result += '{0}. [{1}] {2}\n'.format(i+1, task['priority'], task['task'])
+        result += f"{i+1}. [{task['priority']}] {task['task']}\n"
 
     return result
 

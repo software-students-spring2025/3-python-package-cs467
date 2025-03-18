@@ -8,13 +8,14 @@ from DemoPackage.furtune_cookie import dev_fortune_cookie
 from DemoPackage.generate_emoji import generate_emoji  
 from DemoPackage.owl_banner import gl_banner
 from DemoPackage.daily_planner import daily_planner
+from DemoPackage.password_strength import password_strength
 
 
 
 def main():
    while True:
     print("________________________________________________________________________\n")
-    choice = input("*** Select the function to be executed... \n\t(1: Owl Banner, 2: Fortune Cookie, 3: Generate Emoji, 4: Daily Planner): ") or "1"
+    choice = input("*** Select the function to be executed... \n\t(1: Owl Banner, 2: Fortune Cookie, 3: Generate Emoji, 4: Daily Planner, 5: Password Strength Checker), 6: Abort ") or "1"
     
     try:
         choice = int(choice)
@@ -23,7 +24,7 @@ def main():
         choice = 1
 
     
-    if choice == 4:
+    if choice == 6:
         print("\n************************")
         print("*  PROGRAM TERMINATED  *")
         print("************************\n")
@@ -50,6 +51,11 @@ def main():
             # Daily Planner
             name = input('\n\tPlease enter your name to generate your daily planner')
             print(daily_planner(name))
+
+        case 5:
+            # Password Strength Checker
+            pwd = input('\n\tPlease enter the password to be evaluated')
+            print(password_strength(pwd))
 
         case _:
             print("[Invalid option] Please enter 1, 2, 3, or 4.")

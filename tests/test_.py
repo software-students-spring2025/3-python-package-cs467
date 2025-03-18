@@ -5,6 +5,7 @@ from DemoPackage.furtune_cookie import dev_fortune_cookie
 from DemoPackage.generate_emoji import generate_emoji
 from DemoPackage.owl_banner import gl_banner
 from DemoPackage.daily_planner import daily_planner
+from DemoPackage.password_strength import password_strength
 
 # Tests of furtune_cookie *************************************************************
 def test_dev_fortune_cookie_valid_category():
@@ -133,3 +134,24 @@ def test_daily_planner_invalid_priority():
     # assertions
     assert expected_output in result, f"Expected task '{expected_output}' not found in result"
     sys.stdin = sys.__stdin__
+
+# Tests of daily_planner *************************************************************
+def test_password_strength_strong():
+    password = "aB3$fG7@kL12"  # Contains lowercase, uppercase, digits, and symbols
+    result = password_strength(password)
+    assert result == "Strong password! 💪", f"Expected 'Strong password! 💪', got {result}"
+
+def test_password_strength_moderate():
+    password = "Password123"  # Contains lowercase, uppercase, and digits but no symbols
+    result = password_strength(password)
+    assert result == "Moderate password. 🔒", f"Expected 'Moderate password. 🔒', got {result}"
+
+def test_password_strength_weak():
+    password = "password"  # Only lowercase letters
+    result = password_strength(password)
+    assert result == "Weak password. 🚨", f"Expected 'Weak password. 🚨', got {result}"
+
+def test_password_strength_empty():
+    password = ""  # Empty password
+    result = password_strength(password)
+    assert result == "Weak password. 🚨", f"Expected 'Weak password. 🚨', got {result}"
