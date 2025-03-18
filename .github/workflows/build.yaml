@@ -53,6 +53,7 @@ jobs:
           python -m build
       - name: Publish to Test PyPI
         run: |
+          pipenv install twine
           pipenv run python -m twine upload --repository-url https://test.pypi.org/legacy/ --skip-existing dist/*
         env:
           TWINE_USERNAME: __token__
