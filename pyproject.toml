@@ -8,7 +8,8 @@ description = "A fun Python package that brings joy to developers with some bann
 version = "0.1.1"
 authors = [
   { name = "Polaris Wu", email = "sw5693@nyu.edu" },
-  { name = "Michael Liu", email = "gl2362@nyu.edu" }
+  { name = "Michael Liu", email = "gl2362@nyu.edu" },
+  { name = "Felix Guo", email = "tg2490@nyu.edu" }
 ]
 
 license = { file = "LICENSE" }
