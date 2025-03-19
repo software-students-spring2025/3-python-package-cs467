@@ -1,11 +1,11 @@
-# DemoPackage
+# DemoPackage-cs467
 
 [![Build and Test](https://github.com/software-students-spring2025/3-python-package-cs467/actions/workflows/build.yaml/badge.svg)](https://github.com/software-students-spring2025/3-python-package-cs467/actions/workflows/build.yaml)
 
 A fun Python package that enhances developer workflows with banners, random fortunes, emojis, a daily planner, and a password strength checker.
 
 ## 📌 Overview
-DemoPackage is a lightweight and entertaining Python package designed to add a bit of fun to a developer's workflow. It provides:
+DemoPackage-cs467 is a lightweight and entertaining Python package designed to add a bit of fun to a developer's workflow. It provides:
 - **Fortune Cookie Generator**: Get random, amusing developer fortunes.
 - **Emoji Generator**: Generate relevant emojis based on keywords.
 - **Owl Banner Generator**: Display a stylish ASCII owl banner with project info.
@@ -15,7 +15,7 @@ DemoPackage is a lightweight and entertaining Python package designed to add a b
 ## 📥 Installation
 You can install the package directly from PyPI using pip:
 ```sh
-pip install demopackage
+pip install demopackage-cs467
 ```
 Or install from source:
 ```sh
