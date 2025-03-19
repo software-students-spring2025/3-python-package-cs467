@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "DemoPackage"
-description = "A fun Python package that brings joy to developers with some banners, random fortunes, and emojis."
-version = "0.1.1"
+description = "A fun Python package that enhances developer workflows with banners, random fortunes, emojis, a daily planner, and a password strength checker."
+version = "0.1.2"
 authors = [
   { name = "Polaris Wu", email = "sw5693@nyu.edu" },
   { name = "Michael Liu", email = "gl2362@nyu.edu" }
