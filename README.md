@@ -12,6 +12,10 @@ DemoPackage-cs467 is a lightweight and entertaining Python package designed to a
 - **Daily Planner**: Reads user input and generate daily planner sorted by priority level of each task
 - **Password Strength Checker**: Evaluates the strength of a password
 
+## 📦 PyPI Package
+You can find the latest release on PyPI:  
+🔗 [DemoPackage-CS467 on PyPI](https://pypi.org/project/demopackage-cs467/)
+
 ## 📥 Installation
 You can install the package directly from PyPI using pip:
 ```sh
